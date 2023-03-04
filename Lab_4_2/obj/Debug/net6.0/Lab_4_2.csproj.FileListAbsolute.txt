@@ -1,0 +1,15 @@
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\bin\Debug\net6.0\Lab_4_2.exe
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\bin\Debug\net6.0\Lab_4_2.deps.json
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\bin\Debug\net6.0\Lab_4_2.runtimeconfig.json
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\bin\Debug\net6.0\Lab_4_2.dll
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\bin\Debug\net6.0\Lab_4_2.pdb
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\obj\Debug\net6.0\Lab_4_2.csproj.AssemblyReference.cache
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\obj\Debug\net6.0\Lab_4_2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\obj\Debug\net6.0\Lab_4_2.AssemblyInfoInputs.cache
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\obj\Debug\net6.0\Lab_4_2.AssemblyInfo.cs
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\obj\Debug\net6.0\Lab_4_2.csproj.CoreCompileInputs.cache
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\obj\Debug\net6.0\Lab_4_2.dll
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\obj\Debug\net6.0\refint\Lab_4_2.dll
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\obj\Debug\net6.0\Lab_4_2.pdb
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\obj\Debug\net6.0\Lab_4_2.genruntimeconfig.cache
+C:\Linux_files\C#_files\Lab_4_2\Lab_4_2\obj\Debug\net6.0\ref\Lab_4_2.dll

@@ -1,57 +1,25 @@
-﻿namespace Lab_4_2
+﻿namespace Lab_4_2;
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        List<Client> clientsList = new List<Client>()
         {
-            
-        }
-    }
-
-    class Provider
-    {
-        private List<Tariff> _tariffs = new List<Tariff>();
-    }
-
-    class Client
-    {
-        private readonly string _name;
-        private readonly string _address;
-        private readonly string _number;
-        
-        public string Name { get => _name; }
-        public string Adress { get => _address; }
-        public string Number { get => _number; }
-
-        private int _money;
-
-        public Client(string name, string address, string number)
+            new Client("Max", "Okhtyrka", "+380958763832"),
+            new Client("Vlad", "Symi", "+380958763889"),
+            new Client("Arnold", "Kharkov", "+38095832873832"),
+            //new Client("George", "Kyiv", "+380958654889")
+        };
+        Queue<Client> clients = new Queue<Client>(clientsList);
+        List<Tariff> _tariffs = new List<Tariff>()
         {
-            _name = name;
-            _address = address;
-            _number = number;
-        }
-        public void Pay(int paiment)
-        {
-            if(_money >= paiment)
-                _money -= paiment;
-            else
-                Console.WriteLine("ERROR!");
-        }
-    }
-
-    class Tariff
-    {
-        private List<Client> _clients = new List<Client>();
-        private int _tariffCost;
-
-        public void AddClient()
-        {
-        }
-
-        public void RemoveClient()
-        {
-            
-        }
+            new Tariff("SuperNet", 300),
+            new Tariff("Standard", 100),
+            new Tariff("Standard+", 200)
+        };
+        Provider provider = new Provider(clients, _tariffs);
+        provider.MakeNewOrder();
+        Console.ReadKey();
     }
 }
