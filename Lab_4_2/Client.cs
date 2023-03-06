@@ -3,34 +3,28 @@
 class Client
 {
     private readonly string _name;
-    private readonly string _address;
-    private readonly string _number;
-    private int _money;
+    private readonly int _money;
 
-    private bool _isContract;
-        
-    public string Name { get => _name; }
-    public string Adress { get => _address; }
-    public string Number { get => _number; }
-    public bool IsContract
+    public string Name
     {
-        get => _isContract;
-        set => _isContract = IsContract;
+        get => _name;
     }
-        
 
+    public int Money
+    {
+        get => _money;
+    }
 
-    public Client(string name, string address, string number)
+    public Client(string name, int money)
     {
         _name = name;
-        _address = address;
-        _number = number;
+        _money = money;
     }
-    public void Pay(int paiment)
+    public bool Pay(int paiment)
     {
-        if(_money >= paiment)
-            _money -= paiment;
+        if (_money >= paiment)
+            return true;
         else
-            Console.WriteLine("ERROR!");
+            return false;
     }
 }

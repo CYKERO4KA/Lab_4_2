@@ -2,13 +2,14 @@
 
 class Tariff
 {
-    private string _tariffName;
+    private string _name;
     private int _countOfUsers;
     private int _tariffCost;
+    private int _traffic;
 
-    public string TariffName
+    public string Name
     {
-        get => _tariffName;
+        get => _name;
     }
     public int TariffCost
     {
@@ -17,11 +18,28 @@ class Tariff
     public int TariffUsers
     {
         get => _countOfUsers;
-        set => _countOfUsers = TariffUsers;
     }
-    public Tariff(string tariffName, int tariffCost)
+    public int Traffic
     {
-        _tariffName = tariffName;
+        get => _traffic;
+    }
+    public Tariff(string name, int tariffCost)
+    {
+        _name = name;
         _tariffCost = tariffCost;
+    }
+
+    public void CheckForPayment(Client client)
+    {
+        if (client.Pay(_tariffCost))
+        {
+            _countOfUsers++;
+            _traffic += 122;
+            Console.WriteLine("A client bought your tariff!");
+        }
+        else
+        {
+            Console.WriteLine("Your client doesn't have enough money to pay!");
+        }
     }
 }

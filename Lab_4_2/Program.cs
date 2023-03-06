@@ -6,20 +6,21 @@ class Program
     {
         List<Client> clientsList = new List<Client>()
         {
-            new Client("Max", "Okhtyrka", "+380958763832"),
-            new Client("Vlad", "Symi", "+380958763889"),
-            new Client("Arnold", "Kharkov", "+38095832873832"),
-            //new Client("George", "Kyiv", "+380958654889")
+            new ("Max",10),
+            new ("Vlad", 344),
+            new ("Arnold",200),
+            new ("George", 43),
+            new ("Egor", 120)
         };
         Queue<Client> clients = new Queue<Client>(clientsList);
-        List<Tariff> _tariffs = new List<Tariff>()
+        List<Tariff> tariffs = new List<Tariff>
         {
-            new Tariff("SuperNet", 300),
-            new Tariff("Standard", 100),
-            new Tariff("Standard+", 200)
+            new("Standard", 100),
+            new("Standard+", 200),
+            new("SuperNet", 300)
         };
-        Provider provider = new Provider(clients, _tariffs);
-        provider.MakeNewOrder();
+        Provider provider = new Provider(clients, tariffs);
+        provider.Start();
         Console.ReadKey();
     }
 }
