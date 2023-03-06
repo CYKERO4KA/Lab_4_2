@@ -9,16 +9,15 @@ class Client
     {
         get => _name;
     }
-
     public int Money
     {
         get => _money;
     }
 
-    public Client(string name, int money)
+    public Client(string name, Random random)
     {
         _name = name;
-        _money = money;
+        _money = random.Next(70, 400);
     }
     public bool Pay(int paiment)
     {

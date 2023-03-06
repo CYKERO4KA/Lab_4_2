@@ -4,13 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
+        Random random = new Random();
         List<Client> clientsList = new List<Client>()
         {
-            new ("Max",10),
-            new ("Vlad", 344),
-            new ("Arnold",200),
-            new ("George", 43),
-            new ("Egor", 120)
+            new ("Max", random),
+            new ("Vlad", random),
+            new ("Arnold", random),
+            new ("George", random),
+            new ("Egor", random)
         };
         Queue<Client> clients = new Queue<Client>(clientsList);
         List<Tariff> tariffs = new List<Tariff>

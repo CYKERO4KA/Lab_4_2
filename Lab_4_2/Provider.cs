@@ -39,15 +39,19 @@ class Provider
         {
             foreach (var clients in _clients)
             {
-                Console.WriteLine($"Client {clients.Name}, money {clients.Money}$");
+                Console.WriteLine($"Client {clients.Name}, money - {clients.Money}$");
             }
+
+            Console.WriteLine();
             foreach (var tariffs in _tariffs)
             {
                 Console.WriteLine(
                     $"{++count}. {tariffs.Name} --- {tariffs.TariffCost}$");
             }
 
-            Console.WriteLine($"Which tariff you propose for {_clients.Peek().Name}?: ");
+            Console.WriteLine();
+
+            Console.Write($"Which tariff you propose for {_clients.Peek().Name}?: ");
             var index = Convert.ToInt32(Console.ReadLine());
 
             _tariffs[index - 1].CheckForPayment(_clients.Dequeue());
@@ -73,7 +77,7 @@ class Provider
                 $"{++count}. {tariffs.Name} --- {tariffs.TariffCost}$  (users: {tariffs.TariffUsers}) (traffic: {tariffs.Traffic})");
         }
 
-        Console.WriteLine("You want to sort? (y/n):");
+        Console.Write("\nYou want to sort? (y/n): ");
         answer = Console.ReadLine();
         if (answer == "y")
         {
@@ -88,31 +92,127 @@ class Provider
             Console.WriteLine("ERROR!");
         }
     }
-
+//----------------------------------------------SORTING-----------------------------------------------------------------
     private void Sort()
     {
         string sortBy;
-        string sortTo;
         Console.Clear();
-        Console.WriteLine("Sort by traffic or cost? (t/c):");
+        Console.Write("Sort by traffic or cost or average? (t/c/a): ");
         sortBy = Console.ReadLine();
         if (sortBy == "t")
         {
-            int i = 0;
-            var traffic = _tariffs.OrderBy(n => n.Traffic);
-            foreach (var tf in traffic)
-            {
-                Console.WriteLine($"{tf.Name}  {tf.TariffCost}  {tf.TariffUsers}  {tf.Traffic}");
-                _tariffs[i++] = tf;
-            }
+            SortByTraffic();
         }
         else if(sortBy == "c")
         {
-            
+            SortByCost();
+        }
+        else if (sortBy == "a")
+        {
+            SortByAverage();
         }
         else
         {
             Console.WriteLine("ERROR!");
+        }
+    }
+
+    private void SortByTraffic()
+    {
+        string sortTo;
+
+        Console.Write("You want sort to max or to min? (max/min): ");
+        sortTo = Console.ReadLine();
+        Console.WriteLine();
+        if (sortTo == "max")
+        {
+            int i = 0;
+            var traffic = _tariffs.OrderBy(n => n.Traffic);
+            ShowList(traffic, i);
+        }
+        else if (sortTo == "min")
+        {
+            int i = 0;
+            var traffic = _tariffs.OrderByDescending(n => n.Traffic);
+            ShowList(traffic, i);
+        }
+        else
+        {
+            Console.WriteLine("ERROR!");
+        }
+    }
+    private void SortByCost()
+    {
+        string sortTo;
+        
+        Console.Write("You want sort to max or to min? (max/min): ");
+        sortTo = Console.ReadLine();
+        Console.WriteLine();
+        if (sortTo == "max")
+        {
+            int i = 0;
+            var traffic = _tariffs.OrderBy(n => n.TariffCost);
+            ShowList(traffic, i);
+        }
+        else if (sortTo == "min")
+        {
+            int i = 0;
+            var traffic = _tariffs.OrderByDescending(n => n.TariffCost);
+            ShowList(traffic, i);
+        }
+        else
+        {
+            Console.WriteLine("ERROR!");
+        }
+    }
+    private void SortByAverage()
+    {
+        string trafficSortTo;
+        string costSortTo;
+        
+        Console.Write("You want sort traffic to max or to min? (max/min): ");
+        trafficSortTo = Console.ReadLine();
+        
+        Console.Write("You want sort cost to max or to min? (max/min): ");
+        costSortTo = Console.ReadLine();
+        
+        Console.WriteLine();
+        if (trafficSortTo == "max" && costSortTo == "max")
+        {
+            int i = 0;
+            var traffic = _tariffs.OrderBy(n => n.TariffCost).ThenBy(n => n.Traffic);
+            ShowList(traffic, i);
+        }
+        else if (trafficSortTo == "max" && costSortTo == "min")
+        {
+            int i = 0;
+            var traffic = _tariffs.OrderByDescending(n => n.TariffCost).ThenBy(n => n.Traffic);
+            ShowList(traffic, i);
+        }
+        if (trafficSortTo == "min" && costSortTo == "max")
+        {
+            int i = 0;
+            var traffic = _tariffs.OrderBy(n => n.TariffCost).ThenByDescending(n => n.Traffic);
+            ShowList(traffic, i);
+        }
+        else if (trafficSortTo == "min" && costSortTo == "min")
+        {
+            int i = 0;
+            var traffic = _tariffs.OrderByDescending(n => n.TariffCost).ThenByDescending(n => n.Traffic);
+            ShowList(traffic, i);
+        }
+        else
+        {
+            Console.WriteLine("ERROR!");
+        }
+    }
+
+    private void ShowList(IOrderedEnumerable<Tariff> traffic, int i)
+    {
+        foreach (var tf in traffic)
+        {
+            Console.WriteLine($"{tf.Name} --- {tf.TariffCost}$  (users: {tf.TariffUsers}) (traffic: {tf.Traffic})");
+            _tariffs[i++] = tf;
         }
     }
 }
