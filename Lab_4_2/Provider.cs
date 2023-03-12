@@ -12,19 +12,19 @@ class Provider
     }
     public void Start()
     {
-        int index;
+        char index;
         Console.Clear();
         while (true)
         {
             Console.WriteLine("What you want?:\n1. Add clients\n2. See rating");
 
-            index = Convert.ToInt32(Console.ReadLine());
-            if(index == 1)
+            index = Convert.ToChar(Console.ReadLine());
+            if(index == '1')
                 MakeNewOrder();
-            else if (index == 2)
+            else if (index == '2')
                 ShowRating();
             else
-                Console.WriteLine("ERROR");
+                Console.WriteLine("Incorrect index!");
             Console.ReadKey();
             Console.Clear();
         }
@@ -89,7 +89,7 @@ class Provider
         }
         else
         {
-            Console.WriteLine("ERROR!");
+            Console.WriteLine("Incorrect answer!");
         }
     }
 //----------------------------------------------SORTING-----------------------------------------------------------------
@@ -113,7 +113,7 @@ class Provider
         }
         else
         {
-            Console.WriteLine("ERROR!");
+            Console.WriteLine("Incorrect answer!");
         }
     }
 
@@ -138,7 +138,7 @@ class Provider
         }
         else
         {
-            Console.WriteLine("ERROR!");
+            Console.WriteLine("Incorrect answer!");
         }
     }
     private void SortByCost()
@@ -162,7 +162,7 @@ class Provider
         }
         else
         {
-            Console.WriteLine("ERROR!");
+            Console.WriteLine("Incorrect answer!");
         }
     }
     private void SortByAverage()
@@ -203,7 +203,7 @@ class Provider
         }
         else
         {
-            Console.WriteLine("ERROR!");
+            Console.WriteLine("Incorrect answer!");
         }
     }
 
